@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <RepositoryUrl>https://github.com/bclnet/Contoso.Extensions</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Company>Contoso</Company>
+    <Authors>Contoso</Authors>
+    <Version>1.0.1</Version>
+    <Description>extensions to the System namespace</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Storage\base.sql" />
+    <None Remove="Storage\master.sql" />
+    <None Remove="Storage\model.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Storage\base.sql" />
+    <EmbeddedResource Include="Storage\model.sql" />
+    <EmbeddedResource Include="Storage\master.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.35" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.4" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.112.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\netcode-io\tdstream\Tdstream\Tdstream.csproj" />
+  </ItemGroup>
+</Project>
